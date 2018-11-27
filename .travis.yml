@@ -19,7 +19,7 @@ after_success:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
 
   #TAG
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH | sed "s,/,_,," ; fi`
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH | sed "s,/,_," ; fi`
 
   # CONFIG SERVICE
   - export CONFIG=microservdemo/piggymetrics-config
@@ -91,6 +91,7 @@ before_deploy:
     sudo mv ./kubectl /usr/local/bin/kubectl
 
 deploy:
+  skip_cleanup: true
   provider: script
   script: bash ./kubernetes_ibmcloud_deploy.sh
   on:
