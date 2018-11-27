@@ -9,14 +9,13 @@ jdk: oraclejdk8
 env:
   global:
     # DOCKER_* vars
-    - secure: "WsHx42lYXrRuG4/JIZ7JL++qEPGqltgDPD3J4GCK1yACxrTeiv2Rt2uRJHXV1RQA5IDEHc49T07Ys16Ti51BTemc3r9IwsDXAqaFQI3gdb15lsK3LydVsLOq0sB3brodKOOUitkn+Dst4ZiORHfRfuJg7Ws0hMGPgm39XA1pjf2z/BDfWvMjkNF2u+sADrKnQy4DyRaLfGA0gKsObq6mPO2rlK7yakcjHnIROPfxfkouXhGLp0UVMDeUhDqFohKs3LRsD5RnuJqYSYUS3mq5x4WjErGH6uhlVrtsmd636IatYlqx1Db8bu0rpTR1hlMXEaukeB5eauVk49p4E5nzsCXFgrWMchofPWMWPKVSOTYbB2x6TO74goi/UTRGa6AcB3cxYnqbyQRFrdMnJHXh9O0RKis0mux5WXTDvarhnoEyYJN57T+aMNMqyVsbwxkBpaASmJ8ucZ4NC4v7rJW+CgIMH+souYdJk1UMjBJWhso69XKn4nfybYwSqNtLUtebygsKBMx7bW/vA1Vl8G4o6Oaw4VIFTO9V1nBq5RpNw2D29W1BSMyVXCkVxCOaK9a0rEeGvZUUekhxTCvSf2p1/VbM87ZDpoNcR429B8DxvuhRUa/tW+o2JFQtDOyU6/oL75UzlIndiawZln0ijNFkYKBrdOPp0f8wV2pwuwrL1X4="
-    - secure: "rvMamt5hU3ZpoeBiQPXrywjxCYZSpDQ7pkUS9vnT4DP7mUYxBB1CUXdd48xCZ5jmCkOqIOxiCAX2A0Y+mYSWcBieKQnrlwLJUcP6KUO6w9f37SG5aZYfNxEKoeXRsipRFv6BCvLXbSEnqsqQD4tiURskk4gjQSstRJdO0wYyWxaLcqlXUfeWZVSdd4TTNJZ0ySqjsIh/XRuHHFtPeQ1hBngfw55gq446C0hCq8RVyXgCilOIDzu1T+G8g3qUAZ67I71eecjHCNkx8DCAf7G4PtuWEW0gAcHd6t18UduGlee1bU0he6t+rDf/Go+shwo/fz20POgNp7nUJsvwAomru1BuqPQh9g0+eIYaJkUR6AecP/qMmiu16WVZ2jjMXmjbm1jS8YFtoKIgFbkmYYeLrYHTjpqc1yKzUo4J0NGXcJjTFUXsBQVTkI9xPamwVHGZUmWSrLThNz4+GGcjjcQyNHzjyOjAysEp/pd5Vb2F16ta7BPe4je6IRgM79bbshjrgjLudKzV7WtQxLLjLvd04NNidvoTEYjb/T9kzqa/UMv7LyzbHoJl7V2y8pC5/oH/pY4WhFYTasxWluqm+E7ujYSVI0DPfz+Otqu6iX0KhBbEDMfqMknrLwnBILPO0oZkZLlPOQr+IJy0e21CFyvZO6LyZeAlKnjqSOhIqMoAcX8="
+    - secure: "lCPxX151snF8bDY5wXMhC1M5Xo7uLUrN8GE8rPk08Q6YY46MN6RTFLm9P3JteXY81L8D1mdZ0Df+9LTd4KqPgVDr3NAEoxpfMkp07A1ZFrZ1VMZro1beno7ZWT15BX3yXZN0F4cm1GjH+rNcvDhlNsUapwbOE/Cu/EYRlShxhXPWD1NOXVHsWcNsDoSVB+ZQmnn0EfGbVN0ddawhbNPXgLNHRME8bAQGWnHkTKPBmMDiWmABFTB9BMEcXouYruz4X1rqqq3hzr8mCRk17T6b7fFGIfMTjJT+LUCafhQNcH4OGIK3VjHUaUKYwx0TA7HgT3KdZmRvA4QTXUKyrEpxFP7dg/WKfuZkXYoWSbC91V2tc+8XtfawfOjyoKahIAUnlvadvGsS+9HGS8hYHvAY3YsXAnmqrz2vcJLTUH3kcpQCaieO0uC2WxrFuh8r72Up2LxAA/HezCA7hRzbXt7GcmPk/8FJbykjaEo/CqxC2kdDKJhde7aXqcihoovG5ZS5g5wlKRJBb/fnioEvL3S30aqmsLOXL+R2fxJYtjmLC8oXnBbs6OJ5J8U5QXxF3UWw062krFYHh6YrpawIOrnPpbOftqMiN88VINwWRCAqqJLLnpLGVP6f1CJU0ZwDbYVUtKoHmd6KfJmzyN2E0UN+++PszV8jPEQRLIXl/Bdornw="
     - secure: "E36y9sGm6yuTnuTdWYUMISX320bbNiVJir86/T9y2wGZ8KZLzSzOma29KgBKjlDrCKV9B8i1iMOP56Boyaj3YvBBhGrGnDuQWpUf6fwPZ/yMKx6Q7cVhKwk4n+LYTPaWZll9qdhsF6nyD+fWivw1xCA1ucFij6Gkj3quRq0qy7xxb4DShNJwPxQTMTWQikXA3T1ABB94wyMvUjqdSc0G8gmUOxc9HLYcHmH9iXOjhZDt/QBZAGv+20fuq1GgZOsptGXJPdga5BJdi/P3YlS1l8TbWy2wCvvYvDid5BnOXILKaJsAy7YSuQ9VYsPQhCHOqNyaW/0//wAsfEFb/D8sexAqQZv+52yGYDcOUUXQRzfvIWVWg7Bbeydb+ov+sjwiZDOlJLRTnWsHvEuVOE+f58h+RLfiDw2RU1anAwBPPdrQbNIMcC/AKHii9z9Z/JdLYxqLNA7XYN22q7qcLSBFooHnOspvXYTxnfwhQhyqvKDtbbT37isfr/b92SOSlvc2n4s5Oq4LG3ajCe1yBIVWPpZQwTQsBFis48GRItOgGLJAjZm2OjL5gIDzWPtTMhbnEilXNnHExd70WGCx1YMLxf4RsQjn/Z2l7HeyPfS0qH7GADFYhcoTOZiiYtV92qdom6Ab1H0lVlFJLb3vW0hsAE+cuwiRI+RtD/Cer/zLlAc="
     - COMMIT=${TRAVIS_COMMIT::7}
 
 after_success:
 #  - bash <(curl -s https://codecov.io/bash)
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 
   #TAG
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH | sed "s,/,_," ; fi`
@@ -25,55 +24,55 @@ after_success:
   - export CONFIG=microservdemo/piggymetrics-config
   - docker build -t $CONFIG:$COMMIT ./config
   - docker tag $CONFIG:$COMMIT $CONFIG:$TAG
-  - docker push $CONFIG
+  - docker push $CONFIG:$TAG
 
   # REGISTRY
   - export REGISTRY=microservdemo/piggymetrics-registry
   - docker build -t $REGISTRY:$COMMIT ./registry
   - docker tag $REGISTRY:$COMMIT $REGISTRY:$TAG
-  - docker push $REGISTRY
+  - docker push $REGISTRY:$TAG
 
   # GATEWAY
   - export GATEWAY=microservdemo/piggymetrics-gateway
   - docker build -t $GATEWAY:$COMMIT ./gateway
   - docker tag $GATEWAY:$COMMIT $GATEWAY:$TAG
-  - docker push $GATEWAY
+  - docker push $GATEWAY:$TAG
 
   # AUTH SERVICE
   - export AUTH_SERVICE=microservdemo/piggymetrics-auth-service
   - docker build -t $AUTH_SERVICE:$COMMIT ./auth-service
   - docker tag $AUTH_SERVICE:$COMMIT $AUTH_SERVICE:$TAG
-  - docker push $AUTH_SERVICE
+  - docker push $AUTH_SERVICE:$TAG
 
   # ACCOUNT SERVICE
   - export ACCOUNT_SERVICE=microservdemo/piggymetrics-account-service
   - docker build -t $ACCOUNT_SERVICE:$COMMIT ./account-service
   - docker tag $ACCOUNT_SERVICE:$COMMIT $ACCOUNT_SERVICE:$TAG
-  - docker push $ACCOUNT_SERVICE
+  - docker push $ACCOUNT_SERVICE:$TAG
 
   # STATISTICS SERVICE
   - export STATISTICS_SERVICE=microservdemo/piggymetrics-statistics-service
   - docker build -t $STATISTICS_SERVICE:$COMMIT ./statistics-service
   - docker tag $STATISTICS_SERVICE:$COMMIT $STATISTICS_SERVICE:$TAG
-  - docker push $STATISTICS_SERVICE
+  - docker push $STATISTICS_SERVICE:$TAG
 
   # NOTIFICATION_SERVICE
   - export NOTIFICATION_SERVICE=microservdemo/piggymetrics-notification-service
   - docker build -t $NOTIFICATION_SERVICE:$COMMIT ./notification-service
   - docker tag $NOTIFICATION_SERVICE:$COMMIT $NOTIFICATION_SERVICE:$TAG
-  - docker push $NOTIFICATION_SERVICE
+  - docker push $NOTIFICATION_SERVICE:$TAG
 
   # MONITORING
   - export MONITORING=microservdemo/piggymetrics-monitoring
   - docker build -t $MONITORING:$COMMIT ./monitoring
   - docker tag $MONITORING:$COMMIT $MONITORING:$TAG
-  - docker push $MONITORING
+  - docker push $MONITORING:$TAG
 
   # TURBINE STREAM SERVICE
   - export TURBINE=microservdemo/piggymetrics-turbine-stream-service
   - docker build -t $TURBINE:$COMMIT ./turbine-stream-service
   - docker tag $TURBINE:$COMMIT $TURBINE:$TAG
-  - docker push $TURBINE
+  - docker push $TURBINE:$TAG
 
   # MONGO DB
   - export MONGO_DB=microservdemo/piggymetrics-mongodb
