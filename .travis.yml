@@ -83,7 +83,7 @@ after_success:
 before_deploy:
   # decrypt IBM Cloud secrets
   - openssl aes-256-cbc -K $encrypted_3094b197f777_key -iv $encrypted_3094b197f777_iv -in ic_secrets.tar.enc -out ic_secrets.tar -d
-  - tar xvf secrets.tar
+  - tar xvf ic_secrets.tar
   # install kubectl
   - |
     curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
