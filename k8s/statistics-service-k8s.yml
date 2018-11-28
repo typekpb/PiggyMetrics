@@ -1,20 +1,20 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: registry
+  name: statistics-service
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: registry
+      app: statistics-service
   replicas: 1
   template:
     metadata:
       labels:
-        app: registry
+        app: statistics-service
     spec:
       containers:
-        - name: registry
+        - name: statistics-service
           image: microservdemo/piggymetrics-statistics-service:{{IMG_VERSION}}
           imagePullPolicy: Always
           ports:
@@ -30,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: registry
+  name: statistics-service
 spec:
   ports:
     - name: http
@@ -38,6 +38,6 @@ spec:
       protocol: TCP
       targetPort: 8000
   selector:
-    app: registry
+    app: statistics-service
   sessionAffinity: None
   type: ClusterIP

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: statistics-mongodb
-        image: microservdemo/piggymetrics-statistics-mongodb:{{IMG_VERSION}}
+        image: microservdemo/piggymetrics-mongodb:{{IMG_VERSION}}
         imagePullPolicy: Always
         ports:
         - containerPort: 27017

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: auth-mongodb
-        image: microservdemo/piggymetrics-auth-mongodb:{{IMG_VERSION}}
+        image: microservdemo/piggymetrics-mongodb:{{IMG_VERSION}}
         imagePullPolicy: Always
         ports:
         - containerPort: 27017

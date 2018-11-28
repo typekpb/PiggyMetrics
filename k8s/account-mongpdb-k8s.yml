@@ -15,13 +15,13 @@ spec:
     spec:
       containers:
       - name: account-mongodb
-        image: microservdemo/piggymetrics-account-mongodb:{{IMG_VERSION}}
+        image: microservdemo/piggymetrics-mongodb:{{IMG_VERSION}}
         imagePullPolicy: Always
         ports:
         - containerPort: 27017
         env:
-          - name: mongodb_PASSWORD
-            value: "{{mongodb_PASSWORD}}"
+          - name: MONGODB_PASSWORD
+            value: "{{MONGODB_PASSWORD}}"
           - name: INIT_DUMP
             value: "account-service-dump.js"
 ---

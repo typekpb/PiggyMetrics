@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: notification-mongodb
-        image: microservdemo/piggymetrics-notification-mongodb:{{IMG_VERSION}}
+        image: microservdemo/piggymetrics-mongodb:{{IMG_VERSION}}
         imagePullPolicy: Always
         ports:
         - containerPort: 27017

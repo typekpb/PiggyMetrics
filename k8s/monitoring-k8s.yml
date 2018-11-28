@@ -36,5 +36,4 @@ spec:
   selector:
     app: monitoring
   sessionAffinity: None
-#  type: ClusterIP
-  type: NodePort
+  type: ClusterIP

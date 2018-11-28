@@ -1,21 +1,21 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: registry
+  name: notification-service
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: registry
+      app: notification-service
   replicas: 1
   template:
     metadata:
       labels:
-        app: registry
+        app: notification-service
     spec:
       containers:
-        - name: registry
-          image: microservdemo/piggymetrics-statistics-service:{{IMG_VERSION}}
+        - name: notification-service
+          image: microservdemo/piggymetrics-notification-service:{{IMG_VERSION}}
           imagePullPolicy: Always
           ports:
             - containerPort: 7000
@@ -30,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: registry
+  name: notification-service
 spec:
   ports:
     - name: http
@@ -38,6 +38,6 @@ spec:
       protocol: TCP
       targetPort: 7000
   selector:
-    app: registry
+    app: notification-service
   sessionAffinity: None
   type: ClusterIP

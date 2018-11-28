@@ -18,7 +18,7 @@ spec:
         image: microservdemo/piggymetrics-turbine-stream-service:{{IMG_VERSION}}
         imagePullPolicy: Always
         ports:
-        - containerPort: 4000
+        - containerPort: 8989
         env:
         - name: CONFIG_SERVICE_PASSWORD
           value: "{{CONFIG_SERVICE_PASSWORD}}"
@@ -36,5 +36,4 @@ spec:
   selector:
     app: turbine-stream-service
   sessionAffinity: None
-#  type: ClusterIP
-  type: NodePort
+  type: ClusterIP
