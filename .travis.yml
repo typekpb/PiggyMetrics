@@ -30,55 +30,55 @@ after_success:
 
   # CONFIG SERVICE
   - export CONFIG=microservdemo/piggymetrics-config
-  - docker build -t $CONFIG:$COMMIT -f Dockerfile-java-config --build-arg JAR_FILE=./target/config.jar ./config
+  - docker build -t $CONFIG:$COMMIT -f ./config/Dockerfile-java-config --build-arg JAR_FILE=./target/config.jar ./config
   - docker tag $CONFIG:$COMMIT $CONFIG:$TAG
   - docker push $CONFIG:$TAG
 
   # REGISTRY
   - export REGISTRY=microservdemo/piggymetrics-registry
-  - docker build -t $REGISTRY:$COMMIT -f Dockerfile-java --build-arg JAR_FILE=./target/registry.jar --build-arg PORT=8761 ./registry
+  - docker build -t $REGISTRY:$COMMIT -f ./registry/Dockerfile-java --build-arg JAR_FILE=./target/registry.jar --build-arg PORT=8761 ./registry
   - docker tag $REGISTRY:$COMMIT $REGISTRY:$TAG
   - docker push $REGISTRY:$TAG
 
   # GATEWAY
   - export GATEWAY=microservdemo/piggymetrics-gateway
-  - docker build -t $GATEWAY:$COMMIT -f Dockerfile-java --build-arg JAR_FILE=./target/gateway.jar --build-arg PORT=4000 ./gateway
+  - docker build -t $GATEWAY:$COMMIT -f ./gateway/Dockerfile-java --build-arg JAR_FILE=./target/gateway.jar --build-arg PORT=4000 ./gateway
   - docker tag $GATEWAY:$COMMIT $GATEWAY:$TAG
   - docker push $GATEWAY:$TAG
 
   # AUTH SERVICE
   - export AUTH_SERVICE=microservdemo/piggymetrics-auth-service
-  - docker build -t $AUTH_SERVICE:$COMMIT -f Dockerfile-java --build-arg JAR_FILE=./target/auth-service.jar --build-arg PORT=5000 ./auth-service
+  - docker build -t $AUTH_SERVICE:$COMMIT -f ./auth-service/Dockerfile-java --build-arg JAR_FILE=./target/auth-service.jar --build-arg PORT=5000 ./auth-service
   - docker tag $AUTH_SERVICE:$COMMIT $AUTH_SERVICE:$TAG
   - docker push $AUTH_SERVICE:$TAG
 
   # ACCOUNT SERVICE
   - export ACCOUNT_SERVICE=microservdemo/piggymetrics-account-service
-  - docker build -t $ACCOUNT_SERVICE:$COMMIT -f Dockerfile-java --build-arg JAR_FILE=./target/account-service.jar --build-arg PORT=6000 ./account-service
+  - docker build -t $ACCOUNT_SERVICE:$COMMIT -f ./account-service/Dockerfile-java --build-arg JAR_FILE=./target/account-service.jar --build-arg PORT=6000 ./account-service
   - docker tag $ACCOUNT_SERVICE:$COMMIT $ACCOUNT_SERVICE:$TAG
   - docker push $ACCOUNT_SERVICE:$TAG
 
   # STATISTICS SERVICE
   - export STATISTICS_SERVICE=microservdemo/piggymetrics-statistics-service
-  - docker build -t $STATISTICS_SERVICE:$COMMIT -f Dockerfile-java --build-arg JAR_FILE=./target/statistics-service.jar --build-arg PORT=7000 ./statistics-service
+  - docker build -t $STATISTICS_SERVICE:$COMMIT -f ./statistics-service/Dockerfile-java --build-arg JAR_FILE=./target/statistics-service.jar --build-arg PORT=7000 ./statistics-service
   - docker tag $STATISTICS_SERVICE:$COMMIT $STATISTICS_SERVICE:$TAG
   - docker push $STATISTICS_SERVICE:$TAG
 
   # NOTIFICATION_SERVICE
   - export NOTIFICATION_SERVICE=microservdemo/piggymetrics-notification-service
-  - docker build -t $NOTIFICATION_SERVICE:$COMMIT -f Dockerfile-java --build-arg JAR_FILE=./target/notification-service.jar --build-arg PORT=8000 ./notification-service
+  - docker build -t $NOTIFICATION_SERVICE:$COMMIT -f ./notification-service/Dockerfile-java --build-arg JAR_FILE=./target/notification-service.jar --build-arg PORT=8000 ./notification-service
   - docker tag $NOTIFICATION_SERVICE:$COMMIT $NOTIFICATION_SERVICE:$TAG
   - docker push $NOTIFICATION_SERVICE:$TAG
 
   # MONITORING
   - export MONITORING=microservdemo/piggymetrics-monitoring
-  - docker build -t $MONITORING:$COMMIT -f Dockerfile-java --build-arg JAR_FILE=./target/monitoring.jar --build-arg PORT=8080 ./monitoring
+  - docker build -t $MONITORING:$COMMIT -f ./monitoring/Dockerfile-java --build-arg JAR_FILE=./target/monitoring.jar --build-arg PORT=8080 ./monitoring
   - docker tag $MONITORING:$COMMIT $MONITORING:$TAG
   - docker push $MONITORING:$TAG
 
   # TURBINE STREAM SERVICE
   - export TURBINE=microservdemo/piggymetrics-turbine-stream-service
-  - docker build -t $TURBINE:$COMMIT -f Dockerfile-java --build-arg JAR_FILE=./target/turbine-stream-service.jar --build-arg PORT=8989 ./turbine-stream-service
+  - docker build -t $TURBINE:$COMMIT -f ./turbine-stream-service/Dockerfile-java --build-arg JAR_FILE=./target/turbine-stream-service.jar --build-arg PORT=8989 ./turbine-stream-service
   - docker tag $TURBINE:$COMMIT $TURBINE:$TAG
   - docker push $TURBINE:$TAG
 
