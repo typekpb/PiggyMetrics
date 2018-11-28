@@ -83,6 +83,8 @@ after_success:
 before_deploy:
   # decode kubernetes config
   - openssl aes-256-cbc -K $encrypted_3094b197f777_key -iv $encrypted_3094b197f777_iv -in kube-config-ibm-cloud-microserv-demo.yml.enc -out kube-config-ibm-cloud-microserv-demo.yml -d
+  # decode certificate
+  - openssl aes-256-cbc -K $encrypted_3094b197f777_key -iv $encrypted_3094b197f777_iv -in ca-mil01-microserv-demo.pem.enc -out ca-mil01-microserv-demo.pem -d
   # install kubectl
   - |
     curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
