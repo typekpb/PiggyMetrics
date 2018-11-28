@@ -5,18 +5,18 @@ set -e
 curl -sSL https://git.io/get-mo -o ./k8s/mo
 chmod +x ./k8s/mo
 
+# TODO
+export CONFIG_SERVICE_PASSWORD='config'
+export NOTIFICATION_SERVICE_PASSWORD='notification'
+export STATISTICS_SERVICE_PASSWORD='statistics'
+export ACCOUNT_SERVICE_PASSWORD='account'
+export MONGODB_PASSWORD='mongodb'
+export IMG_VERSION=feat_k8s
+
 # travis env
 if [ "$CI" = "true" ]; then
-    export IMG_VERSION=feat_k8s # TODO master based deployment only
+    # TODO master based deployment only
     export KUBECONFIG=${PWD}/kube-config-mil01-microserv-demo.yml
-else
-    # local env
-    export CONFIG_SERVICE_PASSWORD='config'
-    export NOTIFICATION_SERVICE_PASSWORD='notification'
-    export STATISTICS_SERVICE_PASSWORD='statostics'
-    export ACCOUNT_SERVICE_PASSWORD='account'
-    export MONGODB_PASSWORD='mongodb'
-    export IMG_VERSION=feat_k8s
 fi
 
 echo "Deployment to IBM Cloud"
