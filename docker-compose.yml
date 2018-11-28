@@ -13,7 +13,7 @@ services:
   config:
     environment:
       CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
-    image: "microservdemo/piggymetrics-config:${IMG_VERSION}"
+    image: microservdemo/piggymetrics-config:${IMG_VERSION}
     restart: always
     logging:
       options:
