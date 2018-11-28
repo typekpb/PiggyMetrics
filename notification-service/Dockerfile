@@ -1,4 +1,4 @@
-FROM java:8-jre
+FROM java:8-jre-alpine
 MAINTAINER Alexander Lukyanchikov <sqshq@sqshq.com>
 
 ADD ./target/notification-service.jar /app/
