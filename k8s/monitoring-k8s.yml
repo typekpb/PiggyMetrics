@@ -24,11 +24,11 @@ spec:
           value: "{{CONFIG_SERVICE_PASSWORD}}"
         - name: JAVA_TOOL_OPTIONS
           value: '-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1'
-  resources:
-    limits:
-      memory: 256Mi
-    requests:
-      memory: 256Mi
+        resources:
+          limits:
+            memory: 256Mi
+          requests:
+            memory: 256Mi
 
 ---
 apiVersion: v1
