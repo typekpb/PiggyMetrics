@@ -25,12 +25,11 @@ after_success:
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH | sed "s,/,_," ; fi`
 
   # workaround Docker build restriction: 'docker build dockerfile must be within a build context'
-  - cp Dockerfile-java-config ./config
   - for d in */; do cp Dockerfile-java "$d"; done
 
   # CONFIG SERVICE
   - export CONFIG=microservdemo/piggymetrics-config
-  - docker build -t $CONFIG:$COMMIT -f ./config/Dockerfile-java-config --build-arg JAR_FILE=./target/config.jar ./config
+  - docker build -t $CONFIG:$COMMIT -f ./config/Dockerfile-java --build-arg JAR_FILE=./target/config.jar --build-arg PORT=8888 ./config
   - docker tag $CONFIG:$COMMIT $CONFIG:$TAG
   - docker push $CONFIG:$TAG
 
