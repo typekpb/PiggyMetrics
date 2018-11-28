@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: turbine-stream-service
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: turbine-stream-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: turbine-stream-service
+    spec:
+      containers:
+      - name: turbine-stream-service
+        image: microservdemo/piggymetrics-turbine-stream-service:{{IMG_VERSION}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4000
+        env:
+        - name: CONFIG_SERVICE_PASSWORD
+          value: "{{CONFIG_SERVICE_PASSWORD}}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: turbine-stream-service
+spec:
+  ports:
+  - name: http
+    port: 8989
+    protocol: TCP
+    targetPort: 8989
+  selector:
+    app: turbine-stream-service
+  sessionAffinity: None
+#  type: ClusterIP
+  type: NodePort

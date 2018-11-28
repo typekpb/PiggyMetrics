@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: account-service
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: account-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: account-service
+    spec:
+      containers:
+      - name: account-service
+        image: microservdemo/piggymetrics-account-service:{{IMG_VERSION}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 6000
+        env:
+          - name: CONFIG_SERVICE_PASSWORD
+            value: "{{CONFIG_SERVICE_PASSWORD}}"
+          - name: ACCOUNT_SERVICE_PASSWORD
+            value: "{{ACCOUNT_SERVICE_PASSWORD}}"
+          - name: MONGODB_PASSWORD
+            value: "{{MONGODB_PASSWORD}}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: account-service
+spec:
+  ports:
+  - name: http
+    port: 6000
+    protocol: TCP
+    targetPort: 6000
+  selector:
+    app: account-service
+  sessionAffinity: None
+  type: ClusterIP

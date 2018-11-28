@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gateway
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: gateway
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+      - name: gateway
+        image: microservdemo/piggymetrics-gateway:{{IMG_VERSION}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4000
+        env:
+        - name: CONFIG_SERVICE_PASSWORD
+          value: "{{CONFIG_SERVICE_PASSWORD}}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 4000
+  selector:
+    app: gateway
+  sessionAffinity: None
+#  type: ClusterIP
+  type: NodePort

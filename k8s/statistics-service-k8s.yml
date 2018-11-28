@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: registry
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: registry
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: registry
+    spec:
+      containers:
+        - name: registry
+          image: microservdemo/piggymetrics-statistics-service:{{IMG_VERSION}}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: CONFIG_SERVICE_PASSWORD
+              value: "{{CONFIG_SERVICE_PASSWORD}}"
+            - name: MONGODB_PASSWORD
+              value: "{{MONGODB_PASSWORD}}"
+            - name: STATISTICS_SERVICE_PASSWORD
+              value: "{{STATISTICS_SERVICE_PASSWORD}}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry
+spec:
+  ports:
+    - name: http
+      port: 8000
+      protocol: TCP
+      targetPort: 8000
+  selector:
+    app: registry
+  sessionAffinity: None
+  type: ClusterIP

@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: account-mongodb
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: account-mongodb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: account-mongodb
+    spec:
+      containers:
+      - name: account-mongodb
+        image: microservdemo/piggymetrics-account-mongodb:{{IMG_VERSION}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 27017
+        env:
+          - name: mongodb_PASSWORD
+            value: "{{mongodb_PASSWORD}}"
+          - name: INIT_DUMP
+            value: "account-service-dump.js"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: account-mongodb
+spec:
+  ports:
+  - name: mongo
+    port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    app: account-mongodb
+  sessionAffinity: None
+  type: ClusterIP

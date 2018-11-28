@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: config
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: config
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: config
+    spec:
+      containers:
+      - name: config
+        image: microservdemo/piggymetrics-config:{{IMG_VERSION}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8888
+        env:
+        - name: CONFIG_SERVICE_PASSWORD
+          value: "{{CONFIG_SERVICE_PASSWORD}}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: config
+spec:
+  ports:
+  - name: http
+    port: 8888
+    protocol: TCP
+    targetPort: 8888
+  selector:
+    app: config
+  sessionAffinity: None
+  type: ClusterIP

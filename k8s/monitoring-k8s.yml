@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: monitoring
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: monitoring
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: monitoring
+    spec:
+      containers:
+      - name: monitoring
+        image: microservdemo/piggymetrics-monitoring:{{IMG_VERSION}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: CONFIG_SERVICE_PASSWORD
+          value: "{{CONFIG_SERVICE_PASSWORD}}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: monitoring
+spec:
+  ports:
+  - name: http
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: monitoring
+  sessionAffinity: None
+#  type: ClusterIP
+  type: NodePort

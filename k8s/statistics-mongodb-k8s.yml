@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: statistics-mongodb
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: statistics-mongodb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: statistics-mongodb
+    spec:
+      containers:
+      - name: statistics-mongodb
+        image: microservdemo/piggymetrics-statistics-mongodb:{{IMG_VERSION}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 27017
+        env:
+          - name: MONGODB_PASSWORD
+            value: "{{MONGODB_PASSWORD}}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: statistics-mongodb
+spec:
+  ports:
+  - name: mongo
+    port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    app: statistics-mongodb
+  sessionAffinity: None
+  type: ClusterIP
