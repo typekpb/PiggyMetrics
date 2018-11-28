@@ -14,18 +14,26 @@ spec:
         app: statistics-service
     spec:
       containers:
-        - name: statistics-service
-          image: microservdemo/piggymetrics-statistics-service:{{IMG_VERSION}}
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8000
-          env:
-            - name: CONFIG_SERVICE_PASSWORD
-              value: "{{CONFIG_SERVICE_PASSWORD}}"
-            - name: MONGODB_PASSWORD
-              value: "{{MONGODB_PASSWORD}}"
-            - name: STATISTICS_SERVICE_PASSWORD
-              value: "{{STATISTICS_SERVICE_PASSWORD}}"
+      - name: statistics-service
+        image: microservdemo/piggymetrics-statistics-service:{{IMG_VERSION}}
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8000
+        env:
+          - name: CONFIG_SERVICE_PASSWORD
+            value: "{{CONFIG_SERVICE_PASSWORD}}"
+          - name: MONGODB_PASSWORD
+            value: "{{MONGODB_PASSWORD}}"
+          - name: STATISTICS_SERVICE_PASSWORD
+            value: "{{STATISTICS_SERVICE_PASSWORD}}"
+          - name: JAVA_TOOL_OPTIONS
+            value: '-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1'
+        resources:
+          limits:
+            memory: 256Mi
+          requests:
+            memory: 256Mi
+
 ---
 apiVersion: v1
 kind: Service

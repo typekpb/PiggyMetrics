@@ -20,10 +20,10 @@ else
 fi
 
 echo "Deployment to IBM Cloud"
-kubectl get pods --all-namespaces
+kubectl get pods
+kubectl get services
 
 for yaml in ./k8s/*.yml ; do
   echo "Deploying $yaml"
-#for yaml in ${PWD}/k8s/rabbitmq-k8s.yml ${PWD}/k8s/auth-mongodb-k8s.yml ${PWD}/k8s/auth-service-k8s.yml; do
   cat $yaml | ./k8s/mo | kubectl apply -f -
 done

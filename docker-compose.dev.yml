@@ -5,18 +5,39 @@ services:
       - 5672:5672
 
   config:
-    build: config
+    build:
+      context: ./config
+      dockerfile: $PWD/Dockerfile-java-config
+      args:
+        JAR_FILE: ./target/config.jar
+        PORT: 8888
     ports:
       - 8888:8888
 
+
   registry:
-    build: registry
+    build:
+      context: ./registry
+      dockerfile: $PWD/Dockerfile-java
+      args:
+        JAR_FILE: ./target/registry.jar
+        PORT: 8761
 
   gateway:
-    build: gateway
+    build:
+      context: ./gateway
+      dockerfile: $PWD/Dockerfile-java
+      args:
+        JAR_FILE: ./target/gateway.jar
+        PORT: 4000
 
   auth-service:
-    build: auth-service
+    build:
+      context: ./auth-service
+      dockerfile: $PWD/Dockerfile-java
+      args:
+        JAR_FILE: ./target/auth-service.jar
+        PORT: 5000
     ports:
       - 5000:5000
 
@@ -26,7 +47,12 @@ services:
       - 25000:27017
 
   account-service:
-    build: account-service
+    build:
+      context: ./account-service
+      dockerfile: $PWD/Dockerfile-java
+      args:
+        JAR_FILE: ./target/account-service.jar
+        PORT: 6000
     ports:
       - 6000:6000
 
@@ -36,7 +62,12 @@ services:
       - 26000:27017
 
   statistics-service:
-    build: statistics-service
+    build:
+      context: ./statistics-service
+      dockerfile: $PWD/Dockerfile-java
+      args:
+        JAR_FILE: ./target/statistics-service.jar
+        PORT: 7000
     ports:
       - 7000:7000
 
@@ -46,7 +77,12 @@ services:
       - 27000:27017
 
   notification-service:
-    build: notification-service
+    build:
+      context: ./notification-service
+      dockerfile: $PWD/Dockerfile-java
+      args:
+        JAR_FILE: ./target/notification-service.jar
+        PORT: 8000
     ports:
       - 8000:8000
 
@@ -56,7 +92,18 @@ services:
       - 28000:27017
 
   monitoring:
-    build: monitoring
+    build:
+      context: ./monitoring
+      dockerfile: $PWD/Dockerfile-java
+      args:
+        JAR_FILE: ./target/monitoring.jar
+        PORT: 8080
+
 
   turbine-stream-service:
-    build: turbine-stream-service
+    build:
+      context: ./turbine-stream-service
+      dockerfile: $PWD/Dockerfile-java
+      args:
+        JAR_FILE: ./target/turbine-stream-service.jar
+        PORT: 8989
