@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/typekpb/PiggyMetrics.svg?branch=master)](https://travis-ci.org/sqshq/PiggyMetrics)
-[![codecov.io](https://codecov.io/github/typekpb/PiggyMetrics/coverage.svg?branch=master)](https://codecov.io/github/sqshq/PiggyMetrics?branch=master)
+[![Build Status](https://travis-ci.org/typekpb/PiggyMetrics.svg?branch=feat_k8s)](https://travis-ci.org/typekpb/PiggyMetrics)
+[![codecov.io](https://codecov.io/github/typekpb/PiggyMetrics/coverage.svg?branch=feat_k8s)](https://codecov.io/github/typekpb/PiggyMetrics?branch=feat_k8s)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/sqshq/PiggyMetrics/blob/master/LICENCE)
 
 # Piggy Metrics
