@@ -26,7 +26,7 @@ spec:
           limits:
             memory: 256Mi
           requests:
-            memory: 256Mi
+            memory: 128Mi
 
 ---
 apiVersion: v1
