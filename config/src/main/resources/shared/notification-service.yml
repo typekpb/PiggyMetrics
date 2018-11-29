@@ -48,3 +48,7 @@ spring:
             fallback: false
           ssl:
             enable: true
+
+feign:
+  hystrix:
+    enabled: true
